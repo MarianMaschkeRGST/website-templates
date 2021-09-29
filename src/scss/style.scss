@@ -1,0 +1,108 @@
+// ！！！＝＝＝＝＝＝＝注意＝＝＝＝＝＝＝！！！
+// 利用前は必ずREADME.mdを読んでください。
+
+//　こちらのプロジェクトはDART SASSを使っています。古いRUBY SASSと非互換性があるのでご注意下さい。
+//  ＠useと＠forwardはRUBY SASSで動かないです。
+//  RUBY SASSは2019年から開発チームからネグレクト(depreciated)になりましたので、続きましてプロジェクトに使えずおすすめしたいと思います。
+
+//　DART SASSは自動的にWATCHするので、Watch Sassボタン押すことが必要ありません。
+//  Variableのnamespaceingに注意してください。他のファイルからVariable使う場合：
+//  
+
+// ＝＝＝＝＝＝＝ DART SCSSの利用方法＝＝＝＝＝＝＝
+//@use 'test_variables' as test; → 使う時は:　parameter: test.$variable名;
+//@use 'test_mixins' as mix;　→　使う時は: @include mix.mixin名();
+// body {
+//     h1{
+//         color: test.$test-color;
+//     }
+
+//     span {
+//         @include mix.test();
+//     }
+// }
+
+
+// ＝＝＝＝＝＝＝ Imports ＝＝＝＝＝＝＝
+
+@use 'variables' as var;
+@use 'mixins' as mix;
+
+// ＝＝＝＝＝＝＝ 1. Global ＝＝＝＝＝＝＝
+body {
+    h1{
+        color: var.$base-color;
+        font-size: var.$h1-font-st;
+    }
+
+    .center {
+        @include mix.center-flex();
+    }
+}
+// ＝＝＝＝＝＝＝ 2. General Classes ＝＝＝＝＝＝＝
+// ＝＝＝＝＝＝＝ 3. Section ＝＝＝＝＝＝＝
+// ＝＝＝＝＝＝＝ 4. Individual ＝＝＝＝＝＝＝
+// ＝＝＝＝＝＝＝ 5. Hard Overwrite ＝＝＝＝＝＝＝
+
+
+
+// ＝＝＝＝＝＝＝ 6. Screen Breakpoints ＝＝＝＝＝＝＝ 
+// Mobile portrait mode
+ @media only screen and (max-width: 599px){
+     // ＝＝＝＝＝＝＝ 1. Global ＝＝＝＝＝＝＝
+     // ＝＝＝＝＝＝＝ 2. General Classes ＝＝＝＝＝＝＝
+     // ＝＝＝＝＝＝＝ 3. Section ＝＝＝＝＝＝＝
+     // ＝＝＝＝＝＝＝ 3. Individual ＝＝＝＝＝＝＝
+ }
+
+
+// Tablet portrait mode and mobile landscape mode
+ @media only screen and (min-width: 600px){
+     // ＝＝＝＝＝＝＝ 1. Global ＝＝＝＝＝＝＝
+     // ＝＝＝＝＝＝＝ 2. General Classes ＝＝＝＝＝＝＝
+     // ＝＝＝＝＝＝＝ 3. Section ＝＝＝＝＝＝＝
+     // ＝＝＝＝＝＝＝ 3. Individual ＝＝＝＝＝＝＝
+ }
+ 
+
+ // Tablet landscape mode and low res pc screen
+  @media only screen and (min-width: 900px){
+      // ＝＝＝＝＝＝＝ 1. Global ＝＝＝＝＝＝＝
+      // ＝＝＝＝＝＝＝ 2. General Classes ＝＝＝＝＝＝＝
+      // ＝＝＝＝＝＝＝ 3. Section ＝＝＝＝＝＝＝
+      // ＝＝＝＝＝＝＝ 3. Individual ＝＝＝＝＝＝＝
+  }
+
+
+ // Normal screen
+  @media only screen and (min-width: 1200px){
+      // ＝＝＝＝＝＝＝ 1. Global ＝＝＝＝＝＝＝
+      // ＝＝＝＝＝＝＝ 2. General Classes ＝＝＝＝＝＝＝
+      // ＝＝＝＝＝＝＝ 3. Section ＝＝＝＝＝＝＝
+      // ＝＝＝＝＝＝＝ 3. Individual ＝＝＝＝＝＝＝
+  }
+
+ // High res screen
+  @media only screen and (min-width: 1800px){
+      // ＝＝＝＝＝＝＝ 1. Global ＝＝＝＝＝＝＝
+      // ＝＝＝＝＝＝＝ 2. General Classes ＝＝＝＝＝＝＝
+      // ＝＝＝＝＝＝＝ 3. Section ＝＝＝＝＝＝＝
+      // ＝＝＝＝＝＝＝ 3. Individual ＝＝＝＝＝＝＝
+  }
+
+
+ // QHD res screen
+  @media only screen and (min-width: 2400px){
+      // ＝＝＝＝＝＝＝ 1. Global ＝＝＝＝＝＝＝
+      // ＝＝＝＝＝＝＝ 2. General Classes ＝＝＝＝＝＝＝
+      // ＝＝＝＝＝＝＝ 3. Section ＝＝＝＝＝＝＝
+      // ＝＝＝＝＝＝＝ 3. Individual ＝＝＝＝＝＝＝
+  }
+
+ // UHD res screen
+  @media only screen and (min-width: 3000px){
+      // ＝＝＝＝＝＝＝ 1. Global ＝＝＝＝＝＝＝
+      // ＝＝＝＝＝＝＝ 2. General Classes ＝＝＝＝＝＝＝
+      // ＝＝＝＝＝＝＝ 3. Section ＝＝＝＝＝＝＝
+      // ＝＝＝＝＝＝＝ 3. Individual ＝＝＝＝＝＝＝
+  }

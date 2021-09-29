@@ -1,0 +1,6 @@
+//Divの内容を完全にcenterする
+@mixin center-flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
